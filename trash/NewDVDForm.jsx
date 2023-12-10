@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle } from 'react'
-import LabelWithInput from './LabelWithInput'
+import LabelWithInput from '../components/LabelWithInput'
 import FormHOC from './FormHOC'
 const NewDVDForm= forwardRef(({ fields, handleFieldsChange }, ref) =>  {
   const fieldsArr=[

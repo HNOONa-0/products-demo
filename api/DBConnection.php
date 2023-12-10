@@ -20,7 +20,7 @@
 				// we cant use dsn as our database has not been yet given a name
 				$conn = new PDO("mysql:host=$this->host", $this->username, $this->password, $this->options);
 				// get the query from our file to execute on php
-				$sql = file_get_contents("init.sql");
+				$sql = file_get_contents(__DIR__ . "\\data\\init.sql");
 				// use connection to execute query
 				$conn->exec($sql);
 				return true;

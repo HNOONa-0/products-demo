@@ -1,14 +1,12 @@
 import React, { forwardRef, useImperativeHandle } from 'react'
-import LabelWithInput from './LabelWithInput'
+import LabelWithInput from '../components/LabelWithInput'
 import FormHOC from './FormHOC'
-const NewFurnitureForm= forwardRef(({ fields, handleFieldsChange }, ref) =>  {
+const NewBookForm= forwardRef(({ fields, handleFieldsChange }, ref) =>  {
   const fieldsArr=[
-    {id:"height", name:"Height (CM)"},
-    {id:"width", name:"Width (CM)"},
-    {id:"length", name:"Length (CM)"},
+    {id:"weight", name:"Weight (KG)"}
   ]
   const helloworld=()=>{
-    console.log("hello furniture");
+    console.log("hello book");
   }  
   useImperativeHandle(ref, () => ({
     helloworld,
@@ -26,4 +24,4 @@ const NewFurnitureForm= forwardRef(({ fields, handleFieldsChange }, ref) =>  {
   )
 })
 
-export default NewFurnitureForm;
+export default NewBookForm;

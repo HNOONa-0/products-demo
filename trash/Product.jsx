@@ -9,7 +9,7 @@ const Product = ({ sku, name, price, size }) => {
   return (
     <div className="product-item flex flex-direction-column">
 		<div>
-			<input type="checkbox" onClick={()=>setIsCheck(!isCheck)} checked={isCheck}/>
+			<input type="checkbox" onChange={()=>setIsCheck(!isCheck)} checked={isCheck}/>
 		</div>
 		<div className="rest-of-height flex flex-direction-column justify-content-center align-items-center">
 			<h4>{sku}</h4>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import LabelWithInput from '../LabelWithInput';
 import { isNumber } from '../../common/util';
+import LabelWithInput from '../functional/LabelWithInput';
+
 class Subform extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,6 @@ class Subform extends Component {
   getFields=()=>{
     return this.state.fields;
   }
-  // for oop
   // validateNumber(str){
   //   if(!str || str.length === 0) return "This field cannot be empty"
   //   if(!isNumber(str) ) return "Please enter a valid number"

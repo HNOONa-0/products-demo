@@ -1,7 +1,5 @@
 <?php
-    require "DBConnection.php";
+    require __DIR__ . "\\DBConnection.php";
     $dbObj=new DBConnection();
     $dbObj->init();
-    $conn=$dbObj->connect();
-    // var_dump($conn);
 ?>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Subform from './Subform';
 import { GenFieldsArr } from '../../common/data';
-import { Registry } from '../../classes/Registry';
+// import { Registry } from '../../classes/Registry';
 import { emptyStrings, validateNumber } from '../../common/util';
+import { Registry } from '../../component-registry/Registry';
 class GenSubform extends Subform {
     constructor(props){
       super(props)
@@ -41,11 +42,11 @@ class GenSubform extends Subform {
     //   return emptyStrings(obj);
     // }
     skuValidator(sku){
-      if(!sku || sku.length === 0) return "This field cannot be empty"
+      if(!sku || sku.length === 0) return "Please submit required data"
       return "";
     }
     nameValidator(name){
-      if(!name || name.length === 0) return "This field cannot be empty"
+      if(!name || name.length === 0) return "Please submit required data"
       return "";
     }
     priceValidator(price){

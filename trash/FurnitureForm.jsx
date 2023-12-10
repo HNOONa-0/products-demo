@@ -1,15 +1,18 @@
-// DVDForm.jsx
+// FurnitureForm.jsx
 import React, { useState } from 'react';
-import LabelWithInput from './LabelWithInput';
+import LabelWithInput from '../components/LabelWithInput';
 
-const DVDForm = () => {
+const FurnitureForm = () => {
 
   const [fields, setFields]=useState({})
   const handleFieldChange=(id, value)=>{
     setFields({...fields, [id]:value} )
   }
+  // console.log(fields)
   const fieldsArr=[
-    {id:"size", name:"Size (MB)"}
+    {id:"height", name:"Height (CM)"},
+    {id:"width", name:"Width (CM)"},
+    {id:"length", name:"Length (CM)"},
   ]
   return (
     <>
@@ -23,4 +26,4 @@ const DVDForm = () => {
   )
 };
 
-export default DVDForm;
+export default FurnitureForm;

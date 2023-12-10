@@ -1,16 +1,15 @@
-// BookForm.jsx
+// DVDForm.jsx
 import React, { useState } from 'react';
-import LabelWithInput from './LabelWithInput';
+import LabelWithInput from '../components/LabelWithInput';
 
-const BookForm = () => {
+const DVDForm = () => {
 
   const [fields, setFields]=useState({})
   const handleFieldChange=(id, value)=>{
     setFields({...fields, [id]:value} )
   }
-  // console.log(fields)
   const fieldsArr=[
-    {id:"weight", name:"Weight (KG)"}
+    {id:"size", name:"Size (MB)"}
   ]
   return (
     <>
@@ -24,4 +23,4 @@ const BookForm = () => {
   )
 };
 
-export default BookForm;
+export default DVDForm;

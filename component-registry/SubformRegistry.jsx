@@ -1,12 +1,11 @@
 import React from 'react';
-// import DVDForm from './DVDForm';
-// import FurnitureForm from './FurnitureForm';
-// import BookForm from './BookForm';
-import DVDSubform from '../class-based/DVDSubform';
-import FurnitureSubform from '../class-based/FurnitureSubform';
-import BookSubform from '../class-based/BookSubform';
-import { Registry } from '../../classes/Registry';
-
+import { Registry } from './Registry';
+// import DVDSubform from '../class-based/DVDSubform';
+// import FurnitureSubform from '../class-based/FurnitureSubform';
+// import BookSubform from '../class-based/BookSubform';
+import DVDSubform from '../components/classical/DVDSubform';
+import FurnitureSubform from '../components/classical/FurnitureSubform';
+import BookSubform from '../components/classical/BookSubform';
 const subformRegistry = new Registry();
 
 subformRegistry.insert("DVD", DVDSubform);

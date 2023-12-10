@@ -1,8 +1,8 @@
-// FurnitureForm.jsx
+// BookForm.jsx
 import React, { useState } from 'react';
-import LabelWithInput from './LabelWithInput';
+import LabelWithInput from '../components/LabelWithInput';
 
-const FurnitureForm = () => {
+const BookForm = () => {
 
   const [fields, setFields]=useState({})
   const handleFieldChange=(id, value)=>{
@@ -10,9 +10,7 @@ const FurnitureForm = () => {
   }
   // console.log(fields)
   const fieldsArr=[
-    {id:"height", name:"Height (CM)"},
-    {id:"width", name:"Width (CM)"},
-    {id:"length", name:"Length (CM)"},
+    {id:"weight", name:"Weight (KG)"}
   ]
   return (
     <>
@@ -26,4 +24,4 @@ const FurnitureForm = () => {
   )
 };
 
-export default FurnitureForm;
+export default BookForm;

@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
-import LabelWithInput from './LabelWithInput';
+import LabelWithInput from '../components/LabelWithInput';
 
 const GenForm = forwardRef((props, ref) => {
   const [fields, setFields] = useState({});

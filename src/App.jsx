@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Product from '../components/Product'
-import Products from '../pages/Products'
-import AddProduct from '../pages/AddProduct'
-function App() {
-  const [count, setCount] = useState(0)
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Products from '../pages/Products';
+import AddProduct from '../pages/AddProduct';
+import "../src/App.css";
 
+function App() {
   return (
-    <>
-      {/* <Products /> */}
-      <AddProduct />
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/" element={<Products />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

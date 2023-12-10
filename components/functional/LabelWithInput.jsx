@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { maxLen } from '../../common/data';
 
 const LabelWithInput = ({ id, name, value, handleChange, error}) => {
   return (
@@ -9,9 +10,13 @@ const LabelWithInput = ({ id, name, value, handleChange, error}) => {
           type="text"
           id={id}
           value={value}
-          onChange={(e) => handleChange(id, e.target.value) }
+          onChange={(e) => {
+            if(e.target.value.length >= maxLen) return;
+            handleChange(id, e.target.value)
+          } }
+          style={{minWidth:"160px"}}
         />
-        <div className="error-message">{error}</div>
+        <div className="error-message" style={{maxWidth:"160px"}}>{error}</div>
       </div>
     </div>
   );

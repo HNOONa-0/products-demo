@@ -1,4 +1,4 @@
-export const maxStrlength = 255;
+export const maxLen = 50;
 
 export const DVDFieldsArr = [
   { id: "size", name: "Size (MB)" }
