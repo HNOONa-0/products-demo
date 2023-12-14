@@ -1,7 +1,7 @@
 <?php
 
 // might use product type
-// require_once __DIR__ . "\\..\\models\\Product.php";
+// require_once __DIR__ . "//..//models//Product.php";
 class BookRepository
 {
     private $conn;

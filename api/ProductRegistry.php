@@ -4,9 +4,9 @@
 // require_once "Book.php";
 // require_once "Furniture.php";
 
-require_once __DIR__ . "\\models\\DVD.php";
-require_once __DIR__ . "\\models\\Book.php";
-require_once __DIR__ . "\\models\\Furniture.php";
+require_once __DIR__ . "//models//DVD.php";
+require_once __DIR__ . "//models//Book.php";
+require_once __DIR__ . "//models//Furniture.php";
 
 class ProductRegistry
 {

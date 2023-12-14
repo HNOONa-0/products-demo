@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . "\\Product.php";
-require_once __DIR__ . "\\..\\repositories\\BookRepository.php";
+require_once __DIR__ . "//Product.php";
+require_once __DIR__ . "//..//repositories//BookRepository.php";
 
 class Book extends Product
 {

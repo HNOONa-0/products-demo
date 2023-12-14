@@ -1,7 +1,7 @@
 <?php
 // might need it later
-// require_once __DIR__ . "\\ProductInterface.php";
-require_once __DIR__ . "\\..\\repositories\\ProductRepository.php";
+// require_once __DIR__ . "//ProductInterface.php";
+require_once __DIR__ . "//..//repositories//ProductRepository.php";
 abstract class Product{
     protected $sku;
     protected $name;

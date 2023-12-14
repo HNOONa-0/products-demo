@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . "\\Product.php";
-require_once __DIR__ . "\\..\\repositories\\FurnitureRepository.php";
+require_once __DIR__ . "//Product.php";
+require_once __DIR__ . "//..//repositories//FurnitureRepository.php";
 class Furniture extends Product
 {
     private $length;

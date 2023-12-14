@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "\\..\\models\\ProductInterface.php";
+require_once __DIR__ . "//..//models//ProductInterface.php";
 // might not use this
 interface RepositoryInterface
 {

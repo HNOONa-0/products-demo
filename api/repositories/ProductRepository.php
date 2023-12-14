@@ -1,9 +1,9 @@
 <?php
 // might use product interface type
-// require_once __DIR__ . "\\..\\models\\Product.php";
-require_once __DIR__ . "\\DVDRepository.php";
-require_once __DIR__ . "\\BookRepository.php";
-require_once __DIR__ . "\\FurnitureRepository.php";
+// require_once __DIR__ . "//..//models//Product.php";
+require_once __DIR__ . "//DVDRepository.php";
+require_once __DIR__ . "//BookRepository.php";
+require_once __DIR__ . "//FurnitureRepository.php";
 class ProductRepository
 {
     private $conn;

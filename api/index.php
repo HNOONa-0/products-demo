@@ -5,12 +5,12 @@ ini_set('display_errors', 1);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
-require_once __DIR__ . "\\models\\Product.php";
-include_once __DIR__ . "\\models\\Book.php";
-require_once __DIR__ . "\\models\\DVD.php";
-require_once __DIR__ . "\\models\\Furniture.php";
-require_once __DIR__ . "\\DBConnection.php";
-require_once __DIR__ . "\\ProductRegistry.php";
+require_once __DIR__ . "//models//Product.php";
+include_once __DIR__ . "//models//Book.php";
+require_once __DIR__ . "//models//DVD.php";
+require_once __DIR__ . "//models//Furniture.php";
+require_once __DIR__ . "//DBConnection.php";
+require_once __DIR__ . "//ProductRegistry.php";
 $dbConn = new DBConnection();
 $conn = $dbConn->connect();
 $method = $_SERVER['REQUEST_METHOD'];
@@ -51,7 +51,7 @@ switch ($method) {
     case "DELETE":
         $keys=json_decode(file_get_contents("php://input"));
         if (Product::deleteBatch($conn, $keys)==null) {
-            http_response_code(500);
+            // http_response_code(500);
             $response = ['status' => 0, 'message' => 'Failed to delete some if not all selected records.'];
         } else {
             $response = ['status' => 1, 'message' => 'Succesfully deleted selected products.'];
