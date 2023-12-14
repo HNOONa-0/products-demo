@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
 import Subform from './Subform';
 import { FurnitureFieldsArr } from '../../common/data';
-// import { Registry } from '../../classes/Registry';
-import { emptyStrings, validateNumber } from '../../common/util';
+import { validateNumber } from '../../common/util';
 import { Registry } from '../../component-registry/Registry';
 class FurnitureSubform extends Subform {
     constructor(props){
       super(props)
       this.fieldsArr=FurnitureFieldsArr
-      this.disc="Please provide dimensions"
+      this.disc="Please provide dimensions in HxWxL format in CM."
 
       this.validatorRegistry=new Registry()
       this.validatorRegistry.insert("height", this.heightValidator )

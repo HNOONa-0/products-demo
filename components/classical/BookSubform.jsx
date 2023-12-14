@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
 import Subform from './Subform';
 import { BookFieldsArr } from '../../common/data';
-// import { Registry } from '../../classes/Registry';
-import { emptyStrings, validateNumber } from '../../common/util';
+import { validateNumber } from '../../common/util';
 import { Registry } from '../../component-registry/Registry';
 class BookSubform extends Subform {
     constructor(props){
       super(props)
       this.fieldsArr=BookFieldsArr
-      this.disc="Please provide weight"
+      this.disc="Please provide weight in KG"
 
       this.validatorRegistry=new Registry()
       this.validatorRegistry.insert("weight", this.weightValidator )

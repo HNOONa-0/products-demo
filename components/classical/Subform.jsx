@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { isNumber } from '../../common/util';
 import LabelWithInput from '../functional/LabelWithInput';
 
 class Subform extends Component {
@@ -12,34 +11,23 @@ class Subform extends Component {
     this.fieldsArr=[]
     this.disc=""
     this.validatorRegistry=null
-    // console.log(this.props)
   }
   getFields=()=>{
     return this.state.fields;
   }
-  // validateNumber(str){
-  //   if(!str || str.length === 0) return "This field cannot be empty"
-  //   if(!isNumber(str) ) return "Please enter a valid number"
-  //   return "";
-  // }
-  // validate(){
-
-  // }
   validate(){
     let ok = true;
     let obj={}
-    // console.log(this.fieldsArr)
+
     for(let i=0;i<this.fieldsArr.length;i++ ){
       const en=this.fieldsArr[i]
-      // console.log(en)
       const validator = this.validatorRegistry.get(en.id)
-      // console.log(validator)
       const res = validator(this.state.fields[en.id] )
+
       obj[en.id] = res
       ok = ok & (res.length==0)
-      // console.log(res)
     }
-    // console.log(obj)
+
     this.handleErrorsChange(obj)
     return ok;
   }
@@ -78,9 +66,10 @@ class Subform extends Component {
             value={fields[en.id] === undefined ? '' : fields[en.id]}
             handleChange={this.handleSingleFieldChange}
             error={errors[en.id]}
+            type={en.type}
           />
         ))}
-        <p>{this.disc}</p>
+        {this.disc!==""&&<h3>{this.disc}</h3>}
       </>
     );
   }

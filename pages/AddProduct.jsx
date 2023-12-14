@@ -1,15 +1,4 @@
 import React, { useRef, useState } from "react" 
-// import FormRegistry from "../components/FormRegistery";
-// import GenForm from "../components/GenForm";
-// import NewDVDForm from "../components/NewDVDForm";
-// import FormHOC from "../components/FormHOC";
-// import NewFormRegistry from "../components/NewFormRegistry";
-
-// import TypeSwitcher from "../components/TypeSwitcher";
-// import DVDSubform from "../components/classical/DVDSubform";
-// import BookSubform from "../components/classical/BookSubform";
-// import FurnitureSubform from "../components/classical/FurnitureSubform";
-// import SelectSubform from "../components/component-registry/SubformRegistry";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import TypeSwitcher from "../components/functional/TypeSwitcher";
@@ -27,10 +16,12 @@ function AddProduct() {
           <h1>Product Add</h1>
           <div className="flex align-self-center gap-20">
             <button onClick={()=>{
-              if(!genSubformRef.current.validate() || !customSubformRef.current.validate() ) return;
-              axios.post("http://localhost/products-demo/api/index.php", {...genSubformRef.current.getFields(), ...customSubformRef.current.getFields(), type:productType})
+              const [res1,res2]=[genSubformRef.current.validate(), customSubformRef.current.validate()]
+              if(!res1 || !res2 ) return;
+              axios.post("http://eqdshin.atwebpages.com/api/", {...genSubformRef.current.getFields(), ...customSubformRef.current.getFields(), type:productType})
               .then(response=>{
-                console.log(response.data)
+                // console.log(response)
+
                 navigate('/')
               })
               .catch(error=>{
@@ -39,7 +30,7 @@ function AddProduct() {
                 }
                 // this case?
                 if(error.response?.status === 500){
-                  console.log("server not working");
+                  console.log(error);
                 }
               })
             }}>Save</button>

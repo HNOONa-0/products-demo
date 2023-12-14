@@ -1,8 +1,6 @@
 import React from 'react';
 import { Registry } from './Registry';
-// import DVDSubform from '../class-based/DVDSubform';
-// import FurnitureSubform from '../class-based/FurnitureSubform';
-// import BookSubform from '../class-based/BookSubform';
+
 import DVDSubform from '../components/classical/DVDSubform';
 import FurnitureSubform from '../components/classical/FurnitureSubform';
 import BookSubform from '../components/classical/BookSubform';

@@ -1,35 +1,73 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import axios from "axios";
-// import SelectCard from "../components/component-registry/CardRegistry";
 import { useNavigate } from "react-router-dom";
 import SelectCard from "../component-registry/CardRegistry";
 function Products() {
   
     const [data, setData] = useState([]);
-    const [checkedBoxes,setCheckedBoxes]=useState(new Set() );
+    const checkedBoxes = useRef(new Set());
     const navigate=useNavigate();
 
     const handleBoxCheck=(sku,isCheck)=>{
-      const newSet= new Set(checkedBoxes);
-      if(!isCheck) newSet.add(sku)
-      else newSet.delete(sku)
-      setCheckedBoxes(newSet);
+      if(!isCheck) checkedBoxes.current.add(sku);
+      else checkedBoxes.current.delete(sku);
     }
-
     useEffect(()=>{
-      axios.get("http://localhost/products-demo/api/index.php")
+      axios.get("http://eqdshin.atwebpages.com/api/")
       .then(response=>{
+        // console.log(response);
+
         // you only need to sort them once
-        console.log(response.data);
         setData(response.data.sort((a, b) => a.sku.localeCompare(b.sku) ) );
       })
       .catch(error=>{
         if(error.response?.status === 500){
-          console.log(error.response.data);
+          console.log(error);
         }
       })
-    },[] )
 
+    },[] )
+    
+    const handleMassDelete=()=>{
+      /**
+       * script doesn't trigger state to change in react
+       * we will use a little bit of vanilla js to handle this
+      */
+      const checkboxes=document.getElementsByClassName('delete-checkbox');
+      const fset=new Set();
+      for (let i=0; i<checkboxes.length; i++) if(checkboxes[i].checked===true)fset.add(checkboxes[i].id);
+      if(fset.size===0) return;
+      
+      axios.delete("http://eqdshin.atwebpages.com/api/", {data:Array.from(fset) } )
+      .then(response=>{
+        // console.log(response);
+
+        const newData=data.filter(item => !fset.has(item.sku) );
+        setData(newData );
+      })
+      .catch(error=>{
+        if(error.response?.status === 500){
+          console.log(error);
+        }
+      })
+
+      // if(checkedBoxes.current.size === 0) return;
+      // console.log(checkboxes);
+      // axios.delete("http://eqdshin.atwebpages.com/api/", {data:Array.from(checkedBoxes.current) } )
+      // .then(response=>{
+      //   // console.log(response);
+      //   // const newData=data.filter(item => !checkedBoxes.current.has(item.sku) );
+      //   // setData(newData );
+      //   // checkedBoxes.current.clear();
+      //   const checkboxes = document.getElementsByClassName('delete-checkbox');
+      //   console.log(checkboxes);
+      // })
+      // .catch(error=>{
+      //   if(error.response?.status === 500){
+      //     console.log(error.response);
+      //   }
+      // })
+    }
     return (
       <>
         <div className="flex justify-content-space-between margin-bottom-10 margin-top-10 header-padding">
@@ -41,20 +79,8 @@ function Products() {
               ADD
             </button>
             <button 
-              onClick={()=>{
-                if(checkedBoxes.size == 0) return;
-                axios.delete("http://localhost/products-demo/api/index.php", {data:Array.from(checkedBoxes) } )
-                .then(response=>{
-                  const newData=data.filter(item => !checkedBoxes.has(item.sku) );
-                  setData(newData );
-                  setCheckedBoxes(new Set() )
-                })
-                .catch(error=>{
-                  if(error.response?.status === 500){
-                    console.log(error);
-                  }
-                })
-              }}
+              onClick={handleMassDelete}
+              id="delete-product-btn"
             >
               MASS DELETE
             </button>

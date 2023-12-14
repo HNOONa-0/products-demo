@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
 import Subform from './Subform';
 import { DVDFieldsArr } from '../../common/data';
-// import { Registry } from '../../classes/Registry';
 import { emptyStrings, validateNumber } from '../../common/util';
 import { Registry } from '../../component-registry/Registry';
 class DVDSubform extends Subform {
     constructor(props){
       super(props)
       this.fieldsArr=DVDFieldsArr
-      this.disc="Please provide size"
+      this.disc="Please provide size in MB"
 
       this.validatorRegistry=new Registry()
       this.validatorRegistry.insert("size", this.sizeValidator )

@@ -1,4 +1,5 @@
 <?php
+
 // require_once "DVD.php";
 // require_once "Book.php";
 // require_once "Furniture.php";
@@ -30,4 +31,3 @@ class ProductRegistry
         }
     }
 }
-?>

@@ -12,9 +12,9 @@ const TypeSwitcher = ({value,handleChange}) => {
           handleChange(e.target.value)
         } }
       >
-        <option value="DVD">DVD</option>
-        <option value="Furniture">Furniture</option>
-        <option value="Book">Book</option>
+        <option value="DVD" id="DVD">DVD-disc</option>
+        <option value="Furniture" id="Furniture">Furniture</option>
+        <option value="Book" id="Book">Book</option>
       </select>
     </div>
   );

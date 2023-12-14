@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
 import Subform from './Subform';
 import { GenFieldsArr } from '../../common/data';
-// import { Registry } from '../../classes/Registry';
-import { emptyStrings, validateNumber } from '../../common/util';
+import { validateNumber } from '../../common/util';
 import { Registry } from '../../component-registry/Registry';
 class GenSubform extends Subform {
     constructor(props){
@@ -18,6 +16,7 @@ class GenSubform extends Subform {
     helloWorld(){
       console.log("hello from gen ")
     }
+    // more oop approach
     // skuValidator(){
     //   const {sku} = this.state.fields
     //   if(!sku || sku.length === 0) return "This field cannot be empty"

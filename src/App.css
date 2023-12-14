@@ -113,6 +113,15 @@
     padding: 0px 20px;
   }
 }
+.delete-checkbox{
+  color:black;
+}
+.input-max-width{
+  max-width: 160px;
+}
+.input-min-width{
+  min-width: 160px;
+}
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
